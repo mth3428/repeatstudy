@@ -1,24 +1,65 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+## users テーブル
 
-* Ruby version
+| Columu             | Type    | Options                  |
+| ------------------ | ------- | ------------------------ |
+| nickname           | string  | null: false              |
+| email              | string  | null: false, unique:true |
+| encrypted_password | string  | null: false              |
+| introduction       | text    | null: false              |
 
-* System dependencies
+### Association
 
-* Configuration
+- has_many :comments
+- has_many :posts
 
-* Database creation
+## posts テーブル
 
-* Database initialization
+| Columu             | Type       | Options                        |
+| ------------------ | ---------- | ------------------------------ |
+| tweet              | text       | null: false                    |
+| user               | references | null: false, foreign_key: true |
 
-* How to run the test suite
+### Association
 
-* Services (job queues, cache servers, search engines, etc.)
+- belongs_to :user
+- has_many   :comments
+- has_many   :tags, through: :post_tags
 
-* Deployment instructions
+## tags テーブル
 
-* ...
+| Columu             | Type       | Options                        |
+| ------------------ | ---------- | ------------------------------ |
+| content            | string     | null: false                    |
+
+### Association
+
+- has_many  :posts, through: :post_tags
+
+
+## post_tags テーブル
+
+| Columu             | Type       | Options                        |
+| ------------------ | ---------- | ------------------------------ |
+| post               | references | null: false, foreign_key: true |
+| tag                | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :post
+- belongs_to :tag
+
+## comments テーブル
+
+| Columu             | Type       | Options                        |
+| ------------------ | ---------- | ------------------------------ |
+| post               | references | null: false, foreign_key: true |
+| user               | references | null: false, foreign_key: true |
+| message            | text       | null: false                    |
+
+### Association
+
+- belongs_to :user
+- belongs_to :post
