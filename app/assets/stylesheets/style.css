@@ -43,8 +43,8 @@ a {
   background-color: #f1edf6;
   margin-bottom: 48px;
   padding: 20px 0;
-  
-  
+  position: fixed;
+  width: 100%;
   
 }
 .inner {
@@ -102,9 +102,10 @@ a {
 /*検索窓のエリア*/
 #search-wrap {
   position: absolute;
-z-index: 2;
-top:100px;
-right:10px;
+  z-index: 2;
+  top:100px;
+  right:10px;
+  position: fixed;
 }
 
 /*テキスト入力input設定*/
