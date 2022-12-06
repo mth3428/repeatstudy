@@ -38,12 +38,14 @@ a {
 * {
   box-sizing: border-box;
 }
-
+/* ヘッダー */
 .header {
-  background-color: #f1f8fe;
+  background-color: #f1edf6;
   margin-bottom: 48px;
   padding: 20px 0;
-
+  
+  
+  
 }
 .inner {
   width: 1024px;
@@ -56,28 +58,40 @@ a {
 }
 .logo {
   width: 200px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  color: #9d69e5;
+  padding: 0.4em 1.6em;
+  border: 1px #9d69e5 solid;
 }
+
+.logo:hover {
+  color: #fff;
+  background: #b99ede;
+}
+
 .nav__btn{
   display: inline-block;
   padding: 0.4em 1.6em;
   font-size: 0.8em;
-  color: #87CEFA;
+  color: #9d69e5;
   text-decoration: none;
   user-select: none;
-  border: 1px #87CEFA solid;
+  border: 1px #9d69e5 solid;
   border-radius: 3px;
   transition: 0.4s ease;
 }
 .nav__btn:hover{
   color: #fff;
-  background: #87CEFA;
+  background: #b99ede;
 }
 
 .nav__logout{
   display: inline-block;
   padding: 0.4em 1.6em;
   font-size: 0.8em;
-  color: #87CEFA;
+  color: #9d69e5;
   text-decoration: none;
   user-select: none;
 }
