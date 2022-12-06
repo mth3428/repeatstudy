@@ -99,3 +99,31 @@ a {
   opacity: 0.5;
 }
 
+/*検索窓のエリア*/
+#search-wrap {
+  position: absolute;
+z-index: 2;
+top:100px;
+right:10px;
+}
+
+/*テキスト入力input設定*/
+#search-text{
+  -webkit-appearance:none;
+  width: 60px;
+  height: 60px;
+  padding: 20px;
+  border: none;
+  background:#fff url("https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/7-2-3/img/icon_search.svg") no-repeat 17px center;
+  background-size: 25px 25px;
+  transition: all 0.5s;
+  outline: none;
+  cursor: pointer;
+}
+
+/*テキスト入力inputにフォーカスした時の形状*/
+#search-text:focus {
+  width: 250px;
+  padding: 20px 0 20px 60px;
+  box-shadow: 0 2px rgba(6,0,1,.26);
+}
