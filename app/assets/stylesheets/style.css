@@ -1,0 +1,130 @@
+/* リセットCSS */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+ul,
+li,
+h1,
+h2,
+p,
+div {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN W3", sans-serif;
+  color: #3b4043;
+}
+
+li {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  vertical-align: bottom;
+}
+
+a {
+  text-decoration: none;
+  color: #3b4043;
+}
+
+
+* {
+  box-sizing: border-box;
+}
+/* ヘッダー */
+.header {
+  background-color: #f1edf6;
+  margin-bottom: 48px;
+  padding: 20px 0;
+  position: fixed;
+  width: 100%;
+  
+}
+.inner {
+  width: 1024px;
+  margin: 0 auto;
+}
+.nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.logo {
+  width: 200px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  color: #9d69e5;
+  padding: 0.4em 1.6em;
+  border: 1px #9d69e5 solid;
+}
+
+.logo:hover {
+  color: #fff;
+  background: #b99ede;
+}
+
+.nav__btn{
+  display: inline-block;
+  padding: 0.4em 1.6em;
+  font-size: 0.8em;
+  color: #9d69e5;
+  text-decoration: none;
+  user-select: none;
+  border: 1px #9d69e5 solid;
+  border-radius: 3px;
+  transition: 0.4s ease;
+}
+.nav__btn:hover{
+  color: #fff;
+  background: #b99ede;
+}
+
+.nav__logout{
+  display: inline-block;
+  padding: 0.4em 1.6em;
+  font-size: 0.8em;
+  color: #9d69e5;
+  text-decoration: none;
+  user-select: none;
+}
+.nav__logout:hover{
+  opacity: 0.5;
+}
+
+/*検索窓のエリア*/
+#search-wrap {
+  position: absolute;
+  z-index: 2;
+  top:100px;
+  right:10px;
+  position: fixed;
+}
+
+/*テキスト入力input設定*/
+#search-text{
+  -webkit-appearance:none;
+  width: 60px;
+  height: 60px;
+  padding: 20px;
+  border: none;
+  background:#fff url("https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/7-2-3/img/icon_search.svg") no-repeat 17px center;
+  background-size: 25px 25px;
+  transition: all 0.5s;
+  outline: none;
+  cursor: pointer;
+}
+
+/*テキスト入力inputにフォーカスした時の形状*/
+#search-text:focus {
+  width: 250px;
+  padding: 20px 0 20px 60px;
+  box-shadow: 0 2px rgba(6,0,1,.26);
+}
