@@ -15,6 +15,14 @@
             <%= f.text_field :nickname, autofocus: true%>
           </div>
         </div>
+        <div class="field">
+          <div class='field-label'>
+            <%= f.label :image %>
+          </div>
+            <div class='field-input'>
+              <%= f.file_field :image %>
+            </div>
+        </div>
         <div class='field'>
           <div class='field-label'>
             <%= f.label :email%>
@@ -45,7 +53,7 @@
             <%= f.label :introduction%>
           </div>
           <div class='field-input'>
-            <%= f.text_area :introduction, autofocus: true, :placeholder => "自己紹介", size: "50x5"%>
+            <%= f.text_area :introduction, :placeholder => "自己紹介", size: "50x5"%>
           </div>
         </div>
         <div class='actions'>

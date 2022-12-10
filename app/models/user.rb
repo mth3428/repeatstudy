@@ -4,7 +4,13 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
         
+
+        class User < ActiveRecord::Base
+          mount_uploader :image, ImageUploader
+        end
+  
   has_many :posts
+  has_one_attached :image
 
   validates :nickname, presence: true
   validates :introduction, presence: true

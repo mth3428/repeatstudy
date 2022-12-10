@@ -18,8 +18,13 @@
           </div>
           <% if user_signed_in? %>
             <div class="nav__right"> 
+            <% if current_user.image? %>
+              <%= link_to current_user.image.url, root_path %>
+            <% else %>
+              <%= link_to current_user.image.url, root_path %>
+            <% end %>
               <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: :nav__logout %>
-              <%= link_to "New Proto", root_path, class: :nav__btn %>
+              <%= link_to "New Study", root_path, class: :nav__btn %>
             </div>
           <% else %>
             <div class="nav__right">
