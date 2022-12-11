@@ -5,9 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
         
 
-        class User < ActiveRecord::Base
-          mount_uploader :image, ImageUploader
-        end
+        
   
   has_many :posts
   has_one_attached :image
