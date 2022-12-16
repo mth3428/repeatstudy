@@ -18,7 +18,7 @@
       <%# 投稿内容の表示 %>
         <div class="twitter__block-text">
           <div class="name"><%= link_to post.user.nickname, root_path %></div>
-          <div class="date"><%= post.user.created_at %></div>
+          <div class="date"><%= l post.user.created_at %></div>
           <div class="text">
             <%# 改行を反映させる記述 %>
             <%= safe_join(post.tweet.split("\n"),tag(:br)) %>
