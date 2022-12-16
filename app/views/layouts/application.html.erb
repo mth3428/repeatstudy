@@ -16,11 +16,22 @@
           <div class="nav__left">
             <%= link_to "Repeatstudy", root_path, class: :logo %>
           </div>
-          
-            <div class="nav__right">
-              <%= link_to "ログイン", root_path, class: :nav__btn %>
-              <%= link_to "新規登録", root_path, class: :nav__btn %>
+          <% if user_signed_in? %>
+            <div class="nav__right"> 
+            <% if current_user.image.present? %>
+                <%= link_to image_tag current_user.image.variant(resize: "50x50"),class: "rounded-circle", action: "index" if current_user.image.attached? %>
+            <% else %>
+                <%= link_to image_tag ("default.png"), size: "50x50", class: "rounded-circle", action: "index" %>
+            <% end %>
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: :nav__logout %>
+              <%= link_to "New Study", new_post_path, class: :nav__btn %>
             </div>
+          <% else %>
+            <div class="nav__right">
+              <%= link_to "ログイン", new_user_session_path, class: :nav__btn %>
+              <%= link_to "新規登録", new_user_registration_path, class: :nav__btn %>
+            </div>
+          <% end %>
         </div>
       </div>
     </header>

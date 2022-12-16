@@ -3,3 +3,31 @@
     <input type="text" value="" name="" id="search-text">
   </form>
 </div>
+
+<%# 画像を設定した人はその画像を表示させ設定してない人はデフォルトの画像を表示させる %>
+      <!-- 記事エリア -->
+  <% @posts.each do |post| %>
+    <div class="twitter__block">
+      <%# 画像を表示させるコード %>
+        <% if post.user.image.present? %>
+          <%= link_to image_tag post.user.image, size: "50x50",class: "rounded-circle", action: "index"  %>
+        <% else %>
+          <%= link_to image_tag ("default.png"), size: "50x50", class: "rounded-circle", action: "index" %>
+        <% end %>
+      <%# 画像を表示させるコード %>
+      <%# 投稿内容の表示 %>
+        <div class="twitter__block-text">
+          <div class="name"><%= link_to post.user.nickname, root_path %></div>
+          <div class="date"><%= l post.user.created_at %></div>
+          <div class="text">
+            <%# 改行を反映させる記述 %>
+            <%= safe_join(post.tweet.split("\n"),tag(:br)) %>
+            <%# 改行を反映させる記述 %>
+            <div class="in-pict">
+              <%= image_tag post.image, size: "100x100" if post.image.attached? %>
+            </div>
+          </div>
+        </div>
+      <%# 投稿内容の表示 %>
+    </div>
+  <% end %>
