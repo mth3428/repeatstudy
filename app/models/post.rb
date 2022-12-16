@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
-  varidates :tweet, presence: true
+  validates :tweet, presence: true
 
 
   belongs_to :user

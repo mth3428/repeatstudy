@@ -3,3 +3,34 @@
     <input type="text" value="" name="" id="search-text">
   </form>
 </div>
+
+<%# 画像を設定した人はその画像を表示させ設定してない人はデフォルトの画像を表示させる %>
+      <!-- 記事エリア -->
+      <div class="twitter__block">
+
+      <%# 画像を表示させるコード %>
+      <% @posts.each do |post| %>
+        <% if post.user.image.present? %>
+          <%= link_to image_tag post.user.image, class: "rounded-circle", action: "index"  %>
+        <% else %>
+          <%= link_to image_tag ("default.png"), size: "50x50", class: "rounded-circle", action: "index" %>
+        <% end %>
+      <% end %>
+      <%# 画像を表示させるコード %>
+
+        <div class="twitter__block-text">
+          <div class="name">うさきち<span class="name_reply">@usa_tan</span></div>
+          <div class="date">1時間前</div>
+          <div class="text">
+            残業でお腹空いたから朝までやってるお店でラーメン食べることにした(^o^)神の食べ物すぎる・・うまぁ
+            <div class="in-pict">
+              <img src="default.png">
+            </div>
+          </div>
+          <div class="twitter__icon">
+            <span class="twitter-bubble">1</span>
+            <span class="twitter-loop">4</span>
+            <span class="twitter-heart">122</span>
+          </div>
+        </div>
+      </div>
