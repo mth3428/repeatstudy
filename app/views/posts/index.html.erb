@@ -6,31 +6,28 @@
 
 <%# 画像を設定した人はその画像を表示させ設定してない人はデフォルトの画像を表示させる %>
       <!-- 記事エリア -->
-      <div class="twitter__block">
-
+  <% @posts.each do |post| %>
+    <div class="twitter__block">
       <%# 画像を表示させるコード %>
-      <% @posts.each do |post| %>
         <% if post.user.image.present? %>
-          <%= link_to image_tag post.user.image, class: "rounded-circle", action: "index"  %>
+          <%= link_to image_tag post.user.image, size: "50x50",class: "rounded-circle", action: "index"  %>
         <% else %>
           <%= link_to image_tag ("default.png"), size: "50x50", class: "rounded-circle", action: "index" %>
         <% end %>
-      <% end %>
       <%# 画像を表示させるコード %>
-
+      <%# 投稿内容の表示 %>
         <div class="twitter__block-text">
-          <div class="name">うさきち<span class="name_reply">@usa_tan</span></div>
-          <div class="date">1時間前</div>
+          <div class="name"><%= link_to post.user.nickname, root_path %></div>
+          <div class="date"><%= post.user.created_at %></div>
           <div class="text">
-            残業でお腹空いたから朝までやってるお店でラーメン食べることにした(^o^)神の食べ物すぎる・・うまぁ
+            <%# 改行を反映させる記述 %>
+            <%= safe_join(post.tweet.split("\n"),tag(:br)) %>
+            <%# 改行を反映させる記述 %>
             <div class="in-pict">
-              <img src="default.png">
+              <%= image_tag post.image, size: "100x100" if post.image.attached? %>
             </div>
           </div>
-          <div class="twitter__icon">
-            <span class="twitter-bubble">1</span>
-            <span class="twitter-loop">4</span>
-            <span class="twitter-heart">122</span>
-          </div>
         </div>
-      </div>
+      <%# 投稿内容の表示 %>
+    </div>
+  <% end %>
