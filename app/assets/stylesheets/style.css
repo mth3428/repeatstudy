@@ -267,13 +267,101 @@ h2 {
   background: #ffffff;
   overflow: hidden;
   max-width: 700px; 
-  
   font-size: 80%;
   border: solid 1px #eeeeee;
+}
+
+.user_image {
+  width: 60px;
+  height: 60px;
+}
+
+.twitter__block-text {
+  width: 400px;
+}
+
+.twitter__block-text a {
+  text-decoration: none;
+  color: #3b4043;
+}
+
+.twitter__block-text a :hover {
+  color: #3b4043;
+  text-decoration: none;
+}
+
+.twitter__block-text a :active {
+  color: #3b4043;
 }
 
 /* 投稿画面 */
 .container {
   position: relative;
   top: 100px;
+}
+
+/* 詳細ページ */
+.prototype__wrapper{
+  min-height: calc(100vh - 161px);
+  position: relative;
+  top: 100px;
+}
+
+.prototype__hedding{
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+}
+.prototype__user{
+  display: block;
+  font-size: 16px;
+  color: #b99ede;
+  text-align: center;
+  
+}
+
+.prototype__user a {
+  text-decoration: none;
+
+}
+
+.prototype__image{
+  width: 40%;
+  margin: 0 auto;
+  padding: 16px 0;
+}
+.prototype__detail{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 8px;
+}
+
+.prototype__manage{
+  display: flex;
+  justify-content: center;
+  padding-top: 16px;
+}
+.prototype__btn{
+  display: block;
+  padding: 0.4em 1.6em;
+  font-size: 0.4em;
+  color: #999;
+  text-decoration: none;
+  user-select: none;
+  border: 1px #999 solid;
+  border-radius: 3px;
+  transition: 0.4s ease;
+  margin: 0 4px;
+}
+.prototype__btn:hover{
+  color: #fff;
+  background: #999;
+}
+
+/* 編集画面 */
+.form__wrapper{
+  position: relative;
+  top: 100px;
+  min-height: calc(100vh - 161px);
 }
