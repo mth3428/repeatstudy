@@ -1,0 +1,12 @@
+<div class="main">
+  <div class="inner">
+    <div class="form__wrapper">
+      <h2 class="page-heading">ツイート編集</h2>
+      <%= form_with model: @post, local: true do |form| %>
+      <%= form.file_field :image, placeholder: "Image Url" %>
+      <%= form.text_area :tweet, placeholder: "学んだことを発信しよう", rows: "10" %>
+      <%= form.submit "SEND" %>
+    <% end %>
+    </div>
+  </div>
+</div>
