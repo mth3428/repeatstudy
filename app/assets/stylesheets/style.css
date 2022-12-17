@@ -267,9 +267,31 @@ h2 {
   background: #ffffff;
   overflow: hidden;
   max-width: 700px; 
-  
   font-size: 80%;
   border: solid 1px #eeeeee;
+}
+
+.user_image {
+  width: 60px;
+  height: 60px;
+}
+
+.twitter__block-text {
+  width: 400px;
+}
+
+.twitter__block-text a {
+  text-decoration: none;
+  color: #3b4043;
+}
+
+.twitter__block-text a :hover {
+  color: #3b4043;
+  text-decoration: none;
+}
+
+.twitter__block-text a :active {
+  color: #3b4043;
 }
 
 /* 投稿画面 */
