@@ -12,12 +12,12 @@
       <%# 画像を表示させるコード %>
       <div class="user_image">
         <% if post.user.image.present? %>
-          <%= link_to root_path do %>
+          <%= link_to user_path(post.user) do %>
             <%= image_tag post.user.image, size: "50x50",class: "rounded-circle" %>
           <% end %>
         <% else %>
-          <%= link_to root_path do %>
-            <%= image_tag ("default.png"), size: "50x50", class: "rounded-circle" %>
+          <%= link_to user_path(post.user) do %>
+            <%= image_tag ("default.png"), size: "50x50",class: "rounded-circle" %>
           <% end %>
         <% end %>
       </div>
