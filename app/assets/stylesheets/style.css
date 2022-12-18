@@ -417,3 +417,13 @@ h2 {
   text-decoration: underline;
 }
 
+.contents {
+  position: relative;
+  top: 100px;
+}
+
+/* マイページ部分 */
+.my_page {
+  position: relative;
+  top: 100px;
+}
