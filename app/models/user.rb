@@ -9,6 +9,7 @@ class User < ApplicationRecord
   
   has_many :posts
   has_one_attached :image
+  has_many :comments, dependent: :destroy
 
   validates :nickname, presence: true
   validates :introduction, presence: true

@@ -20,7 +20,26 @@
           </p>
         </div>
       </div>
-      
+      <div class="container">
+        <% if user_signed_in? %>
+          <%= form_with(model: [@post, @comment], local: true) do |form| %>
+            <%= form.text_area :message, placeholder: "コメントする" %>
+            <%= form.submit "SEND" %>
+          <% end %>
+        <% else %>
+          <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
+        <% end %>
+        <div class="comments">
+          <h4>＜コメント一覧＞</h4>
+          <% @comments.each do |comment| %>
+            <p>
+              <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>：</strong>
+              <%= safe_join(comment.message.split("\n"),tag(:br)) %>
+              <%= l comment.created_at %>
+            </p>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
 </main>
