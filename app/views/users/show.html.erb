@@ -1,14 +1,17 @@
 <div class="my_page">
-  <% if @post.user.image.present? %>
-          <%= link_to user_path(@post.user) do %>
-            <%= image_tag @post.user.image, size: "50x50",class: "rounded-circle" %>
+    <div class="user_image">
+      <% if @user.image.present? %>
+          <%= link_to user_path(@user) do %>
+            <%= image_tag @user.image, size: "50x50",class: "rounded-circle" %>
           <% end %>
         <% else %>
-          <%= link_to user_path(@post.user) do %>
+          <%= link_to user_path(@user) do %>
             <%= image_tag ("default.png"), size: "50x50",class: "rounded-circle" %>
           <% end %>
-  <% end %>
+      <% end %>
+    </div>
   <%= @user.introduction %>
+
 
   <% @posts.each do |post| %>
     <div class="twitter__block">

@@ -18,17 +18,17 @@
           </div>
           <% if user_signed_in? %>
             <div class="nav__right"> 
-            <% if current_user.image.present? %>
+              <% if current_user.image.present? %>
                 <%= link_to user_path(current_user.id) do %>
                   <%= image_tag current_user.image.variant(resize: "50x50"),class: "rounded-circle" if current_user.image.attached? %>
                 <% end %>
                 <%= link_to current_user.nickname, user_path(current_user.id) %>
-            <% else %>
+              <% else %>
                 <%= link_to user_path(current_user.id) do %>
                   <%= image_tag ("default.png"), size: "50x50", class: "rounded-circle" %>
                 <% end %>
                 <%= link_to current_user.nickname, user_path(current_user.id) %>
-            <% end %>
+              <% end %>
               <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: :nav__logout %>
               <%= link_to "New Study", new_post_path, class: :nav__btn %>
             </div>

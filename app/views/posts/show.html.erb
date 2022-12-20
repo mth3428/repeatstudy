@@ -1,7 +1,19 @@
 <main class="main">
   <div class="inner">
     <div class="prototype__wrapper">
-      <%= link_to (@post.user.nickname), root_path, class: :prototype__user %>
+      <div class="image_nickname">
+        <% if @post.user.image.present? %>
+          <%= link_to user_path(@post.user) do %>
+            <%= image_tag @post.user.image, size: "50x50",class: "rounded-circle" %>
+          <% end %>
+        <% else %>
+          <%= link_to user_path(@post.user) do %>
+            <%= image_tag ("default.png"), size: "50x50",class: "rounded-circle" %>
+          <% end %>
+        <% end %>
+        <%= link_to (@post.user.nickname), user_path(@post.user) %>
+      </div>
+      
       <%# ツイートの投稿者とログインしているユーザーが同じ場合 %>
       <% if user_signed_in? && current_user.id == @post.user_id %>
         <div class="prototype__manage">
@@ -31,7 +43,7 @@
         <% end %>
         <div class="comments">
           <h4>＜コメント一覧＞</h4>
-          <% @comments.each do |comment| %>
+          <% @comments.reverse.each do |comment| %>
             <p>
               <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>：</strong>
               <%= safe_join(comment.message.split("\n"),tag(:br)) %>
