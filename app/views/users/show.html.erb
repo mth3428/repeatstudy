@@ -1,5 +1,5 @@
 <div class="my_page">
-    <div class="user_image">
+    <div class="image_nickname">
       <% if @user.image.present? %>
           <%= link_to user_path(@user) do %>
             <%= image_tag @user.image, size: "50x50",class: "rounded-circle" %>
@@ -9,8 +9,9 @@
             <%= image_tag ("default.png"), size: "50x50",class: "rounded-circle" %>
           <% end %>
       <% end %>
+      <%= @user.introduction %>
     </div>
-  <%= @user.introduction %>
+  
 
 
   <% @posts.each do |post| %>
