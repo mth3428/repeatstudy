@@ -11,8 +11,10 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
+    @post = current_user.posts.new(post_params)
+    tags = params[:post][:tag_id].split(",")
     if @post.save
+      @post.save_tags(tags)
       redirect_to root_path
     else
       render :new
@@ -23,16 +25,21 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @comment = Comment.new
     @comments = @post.comments.includes(:user)
+    @tags = @post.tags.pluck(:content).join(',')
+
   end
 
   def edit
     @post = Post.find(params[:id])
+    @tags = @post.tags.pluck(:content).join(',')
     redirect_to root_path unless current_user.id == @post.user_id
   end
 
   def update
     @post = Post.find(params[:id])
+    tags = params[:post][:tag_id].split(",")
     if @post.update(post_params)
+      @post.update_tags(tags)
       redirect_to post_path
     else
       render :edit
