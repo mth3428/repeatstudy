@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
   def index
     @posts = Post.all.order(created_at: "DESC")
-    
+    @tags=Tag.all
   end
 
   def new
@@ -11,8 +11,9 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = current_user.posts.new(post_params)
-    tags = params[:post][:tag_id].split(",")
+    @post = Post.new(post_params)
+    @post.user_id=current_user.id
+    tags = params[:post][:content].split(',')
     if @post.save
       @post.save_tags(tags)
       redirect_to root_path
@@ -37,7 +38,7 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    tags = params[:post][:tag_id].split(",")
+    tags = params[:post][:content].split(',')
     if @post.update(post_params)
       @post.update_tags(tags)
       redirect_to post_path
@@ -57,7 +58,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:tweet, :image).merge(user_id: current_user.id)
+    params.require(:post).permit(:tweet, :image, :tag_id)
   end
 
   def move_to_index

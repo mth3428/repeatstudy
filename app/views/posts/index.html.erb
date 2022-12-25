@@ -28,12 +28,13 @@
           <div class="name"><%= post.user.nickname %></div>
             <div class="date"><%= l post.user.created_at %></div>
           <div class="text">
-            <%# 改行を反映させる記述 %>
-            <%= safe_join(post.tweet.split("\n"),tag(:br)) %>
-            <%# 改行を反映させる記述 %>
             <div class="in-pict">
               <%= image_tag post.image, size: "200x200" if post.image.attached? %>
             </div>
+            <%# 改行を反映させる記述 %>
+            <%= safe_join(post.tweet.split("\n"),tag(:br)) %>
+            <%# 改行を反映させる記述 %>
+            <%= @tags %>
           </div>
         <% end %>
         </div>

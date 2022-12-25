@@ -9,11 +9,20 @@ class Post < ApplicationRecord
   has_many :tags, through: :post_tags
 
 # タグ付けの新規投稿用メソッド
-  def save_tags(tags)
-    tags.each do |new_tags|
-      self.tags.find_or_create_by(content: new_tags)
-    end
+def save_tags(tags)
+  current_tags = self.tags.pluck(:content) unless self.tags.nil?
+  old_tags = current_tags - tags
+  new_tags = tags - current_tags
+
+  old_tags.each do |old_name|
+    self.tags.delete Tag.find_by(content: old_name)
   end
+
+  new_tags.each do |new_name|
+    post_tag = Tag.find_or_create_by(content: new_name)
+    self.tags << post_tag
+  end
+end
 
 # タグ付けの更新用メソッド
   def update_tags(latest_tags)

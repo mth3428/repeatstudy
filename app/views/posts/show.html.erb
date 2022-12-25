@@ -29,6 +29,7 @@
         <div class="prototype__detail">
           <p class="detail__message">
             <%= safe_join(@post.tweet.split("\n"),tag(:br)) %>
+            <%= @tags %>
           </p>
         </div>
       </div>
