@@ -29,9 +29,12 @@
         <div class="prototype__detail">
           <p class="detail__message">
             <%= safe_join(@post.tweet.split("\n"),tag(:br)) %>
-            <%= @tags %>
           </p>
+          <div class="tag_area">
+            <%= @tags %>
+          </div>
         </div>
+
       </div>
       <div class="container">
         <% if user_signed_in? %>

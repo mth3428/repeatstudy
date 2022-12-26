@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
   def index
     @posts = Post.all.order(created_at: "DESC")
-    @tags=Tag.all
+    
   end
 
   def new
@@ -54,11 +54,12 @@ class PostsController < ApplicationController
     end
   end
 
+  
 
   private
 
   def post_params
-    params.require(:post).permit(:tweet, :image, :tag_id)
+    params.require(:post).permit(:tweet, :image)
   end
 
   def move_to_index

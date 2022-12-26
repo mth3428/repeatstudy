@@ -1,9 +1,10 @@
 class UsersController < ApplicationController
 
   def show
-    @post = Post.find(params[:id])
     @user = User.find(params[:id])
-    @posts = @user.posts
+    
+    
+    @posts = @user.posts.order(created_at: "DESC")
   end
 
   def edit
@@ -22,7 +23,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:nickname, :email, :introduction, :image)
+    params.require(:user).permit(:nickname, :email, :introduction, :image).merge(post_id: params[:post_id])
   end
 
 end

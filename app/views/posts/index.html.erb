@@ -1,8 +1,4 @@
-<div id="search-wrap">
-  <form role="search" method="get" action="">
-    <input type="text" value="" name="" id="search-text">
-  </form>
-</div>
+
 
 <%# 画像を設定した人はその画像を表示させ設定してない人はデフォルトの画像を表示させる %>
       <!-- 記事エリア -->
@@ -26,7 +22,7 @@
         <div class="twitter__block-text">
         <%= link_to post_path(post.id) do %>
           <div class="name"><%= post.user.nickname %></div>
-            <div class="date"><%= l post.user.created_at %></div>
+            <div class="date"><%= l post.created_at %></div>
           <div class="text">
             <div class="in-pict">
               <%= image_tag post.image, size: "200x200" if post.image.attached? %>
@@ -34,7 +30,7 @@
             <%# 改行を反映させる記述 %>
             <%= safe_join(post.tweet.split("\n"),tag(:br)) %>
             <%# 改行を反映させる記述 %>
-            <%= @tags %>
+            
           </div>
         <% end %>
         </div>
