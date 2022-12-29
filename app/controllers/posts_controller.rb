@@ -12,7 +12,10 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    @post.user_id=current_user.id
+    tags = params[:post][:content].split('#')
     if @post.save
+      @post.save_tags(tags)
       redirect_to root_path
     else
       render :new
@@ -23,16 +26,21 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @comment = Comment.new
     @comments = @post.comments.includes(:user)
+    @tags = @post.tags.pluck(:content).join('#')
+
   end
 
   def edit
     @post = Post.find(params[:id])
+    @tags = @post.tags.pluck(:content).join('#')
     redirect_to root_path unless current_user.id == @post.user_id
   end
 
   def update
     @post = Post.find(params[:id])
+    tags = params[:post][:content].split('#')
     if @post.update(post_params)
+      @post.update_tags(tags)
       redirect_to post_path
     else
       render :edit
@@ -46,11 +54,16 @@ class PostsController < ApplicationController
     end
   end
 
+  def search
+    @q = Post.ransack(params[:q])
+    @posts = @q.result
+    
+  end
 
   private
 
   def post_params
-    params.require(:post).permit(:tweet, :image).merge(user_id: current_user.id)
+    params.require(:post).permit(:tweet, :image)
   end
 
   def move_to_index

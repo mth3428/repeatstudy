@@ -20,4 +20,9 @@ class User < ApplicationRecord
   with_options presence: true, format: { with: PASSWORD_REGEX }, on: :create do
     validates :password
   end
+
+
+
+  
+
 end

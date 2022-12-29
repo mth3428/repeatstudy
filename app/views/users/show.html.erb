@@ -1,46 +1,48 @@
-<div class="my_page">
-    <div class="image_nickname">
-      <% if @user.image.present? %>
-          <%= link_to user_path(@user) do %>
-            <%= image_tag @user.image, size: "50x50",class: "rounded-circle" %>
-          <% end %>
-        <% else %>
-          <%= link_to user_path(@user) do %>
-            <%= image_tag ("default.png"), size: "50x50",class: "rounded-circle" %>
-          <% end %>
-      <% end %>
-      <%= @user.introduction %>
-    </div>
-  
-
-
-  <% @posts.each do |post| %>
-    <div class="twitter__block">
-      <div class="user_image">
-          <% if post.user.image.present? %>
-            <%= link_to user_path(post.user) do %>
-              <%= image_tag post.user.image, size: "50x50",class: "rounded-circle" %>
+<div class="inner">
+  <div class="my_page">
+      <div class="image_nickname">
+        <% if @user.image.present? %>
+            <%= link_to user_path(@user) do %>
+              <%= image_tag @user.image, size: "50x50",class: "rounded-circle" %>
             <% end %>
           <% else %>
-            <%= link_to user_path(post.user) do %>
+            <%= link_to user_path(@user) do %>
               <%= image_tag ("default.png"), size: "50x50",class: "rounded-circle" %>
             <% end %>
-          <% end %>
-      </div>
-      <div class="twitter__block-text">
-        <%= link_to post_path(post.id) do %>
-          <div class="name"><%= post.user.nickname %></div>
-            <div class="date"><%= l post.user.created_at %></div>
-          <div class="text">
-            <%# 改行を反映させる記述 %>
-            <%= safe_join(post.tweet.split("\n"),tag(:br)) %>
-            <%# 改行を反映させる記述 %>
-            <div class="in-pict">
-              <%= image_tag post.image, size: "200x200" if post.image.attached? %>
-            </div>
-          </div>
         <% end %>
+        <%= @user.introduction %>
       </div>
-    </div>
-  <% end %>
+    
+
+
+    <% @posts.each do |post| %>
+      <div class="twitter__block">
+        <div class="user_image">
+            <% if post.user.image.present? %>
+              <%= link_to user_path(post.user) do %>
+                <%= image_tag post.user.image, size: "50x50",class: "rounded-circle" %>
+              <% end %>
+            <% else %>
+              <%= link_to user_path(post.user) do %>
+                <%= image_tag ("default.png"), size: "50x50",class: "rounded-circle" %>
+              <% end %>
+            <% end %>
+        </div>
+        <div class="twitter__block-text">
+          <%= link_to post_path(post.id) do %>
+            <div class="name"><%= post.user.nickname %></div>
+              <div class="date"><%= l post.created_at %></div>
+            <div class="text">
+              <%# 改行を反映させる記述 %>
+              <%= safe_join(post.tweet.split("\n"),tag(:br)) %>
+              <%# 改行を反映させる記述 %>
+              <div class="in-pict">
+                <%= image_tag post.image, size: "200x200" if post.image.attached? %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>

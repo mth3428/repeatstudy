@@ -261,6 +261,12 @@ h2 {
 }
 
 /* トップページ */
+.search {
+  position: relative;
+  top: 100px;
+}
+
+
 .twitter__block {
   position: relative;
   top: 100px;
