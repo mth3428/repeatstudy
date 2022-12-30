@@ -8,6 +8,9 @@ class Post < ApplicationRecord
   has_many :post_tags, dependent: :destroy
   has_many :tags, through: :post_tags
 
+  belongs_to :user, optional: true
+  has_many :favorites, dependent: :destroy
+
   # タグ付けの新規投稿用メソッド
   def save_tags(tags)
     current_tags = self.tags.pluck(:content) unless self.tags.nil?

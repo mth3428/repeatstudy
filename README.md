@@ -14,6 +14,7 @@
 
 - has_many :comments
 - has_many :posts
+- has_many :favorites
 
 ## posts テーブル
 
@@ -27,6 +28,8 @@
 - belongs_to :user
 - has_many   :comments
 - has_many   :tags, through: :post_tags
+- has_many   :favorite
+- belongs_to :user
 
 ## tags テーブル
 
@@ -63,3 +66,16 @@
 
 - belongs_to :user
 - belongs_to :post
+
+
+## favorites テーブル
+
+| Columu             | Type       | Options                        |
+| ------------------ | ---------- | ------------------------------ |
+| post               | references | null: false, foreign_key: true |
+| user               | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :post
+- belongs_to :user
