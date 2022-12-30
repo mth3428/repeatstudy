@@ -1,0 +1,9 @@
+<% if current_user.favorited_by?(post.id) %>
+  <%= link_to(post_add_path(post), method: :delete, remote: true, id: :"favorite-button-#{post.id}") do %>
+    いいねを外す
+  <% end %>
+<% else %>
+  <%= link_to(post_add_path(post), method: :post, remote: true, id: :"favorite-button-#{post.id}") do %>
+    いいね
+  <% end %>
+<% end %>

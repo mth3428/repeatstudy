@@ -30,8 +30,11 @@
             <%# 改行を反映させる記述 %>
             <%= safe_join(post.tweet.split("\n"),tag(:br)) %>
             <%# 改行を反映させる記述 %>
-            
           </div>
+          <div id="favorite-btn-<%= post.id %>">
+            <%= render 'favorites/favorite', post: post %>
+          </div>
+          
         <% end %>
         </div>
       <%# 投稿内容の表示 %>
