@@ -52,6 +52,15 @@ class Post < ApplicationRecord
       end
     end
   end
+  # いいねしたかどうかを判断するメソッド
+  def favorited_by?(user)
+    favorites.where(user_id: user.id).exists?
+  end
+
+
   
+
+  
+
 
 end

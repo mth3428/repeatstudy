@@ -23,10 +23,7 @@ class User < ApplicationRecord
   with_options presence: true, format: { with: PASSWORD_REGEX }, on: :create do
     validates :password
   end
-  # いいねしたかどうかを判断するメソッド
-  def favorited_by?(post_id)
-    favorites.where(post_id: post_id).exists?
-  end
+  
 
   
 

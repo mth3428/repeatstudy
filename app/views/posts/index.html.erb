@@ -31,10 +31,11 @@
             <%= safe_join(post.tweet.split("\n"),tag(:br)) %>
             <%# 改行を反映させる記述 %>
           </div>
+          <%# いいね機能を表示 %>
           <div id="favorite-btn-<%= post.id %>">
             <%= render 'favorites/favorite', post: post %>
           </div>
-          
+          <%# いいね機能を表示 %>
         <% end %>
         </div>
       <%# 投稿内容の表示 %>
