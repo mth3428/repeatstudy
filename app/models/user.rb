@@ -12,6 +12,7 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
 
   has_many :favorites, dependent: :destroy
+  has_many :favorite_posts, through: :favorites, source: :post
 
   validates :nickname, presence: true
   validates :introduction, presence: true
@@ -22,8 +23,7 @@ class User < ApplicationRecord
   with_options presence: true, format: { with: PASSWORD_REGEX }, on: :create do
     validates :password
   end
-
-
+  
 
   
 

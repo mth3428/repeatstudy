@@ -8,8 +8,9 @@ class Post < ApplicationRecord
   has_many :post_tags, dependent: :destroy
   has_many :tags, through: :post_tags
 
-  belongs_to :user, optional: true
+  
   has_many :favorites, dependent: :destroy
+  has_many :users, through: :favorites
 
   # タグ付けの新規投稿用メソッド
   def save_tags(tags)
@@ -51,7 +52,10 @@ class Post < ApplicationRecord
       end
     end
   end
-
+  # いいねしたかどうかを判断するメソッド
+  def favorited_by?(user)
+    favorites.where(user_id: user.id).exists?
+  end
 
 
   
