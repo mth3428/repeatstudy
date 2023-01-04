@@ -19,6 +19,25 @@ class UsersController < ApplicationController
     end
   end
 
+  def index
+    @users = User.where.not(id: current_user.id)
+    # current_userのid以外のuserの全てのidを取ってくる
+  end
+
+  # あるuserがフォローしている人全員を取得するアクションを定義
+  def followings
+    user = User.find(params[:id])
+    @users = user.followings
+        # このuserがフォローしている人全員を取ってくる
+  end
+
+  # あるuserをフォローしている人全員を取得するアクションを定義
+  def followers
+    user = User.find(params[:id])
+    @users = user.followers
+        # このuserをフォローしている人全員を取ってくる
+  end
+
   
 
   private
