@@ -16,4 +16,6 @@ Rails.application.routes.draw do
     resource :favorites, on: :collection
   end
 
+  resources :relationships, only: [:create, :destroy]
+  
 end
