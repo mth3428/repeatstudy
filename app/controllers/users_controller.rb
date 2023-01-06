@@ -1,11 +1,8 @@
 class UsersController < ApplicationController
-
+  before_action :authenticate_user!
   def show
     @user = User.find(params[:id])
     @posts = @user.posts.order(created_at: "DESC")
-
-    favorites = Favorite.where(user_id: current_user.id).pluck(:post_id)  # ログイン中のユーザーのお気に入りのpost_idカラムを取得
-    @favorite_list = Post.find(favorites)     # postsテーブルから、お気に入り登録済みのレコードを取得
   end
 
   def edit
@@ -17,6 +14,25 @@ class UsersController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def index
+    @users = User.where.not(id: current_user.id)
+    # current_userのid以外のuserの全てのidを取ってくる
+  end
+
+  # あるuserがフォローしている人全員を取得するアクションを定義
+  def followings
+    user = User.find(params[:id])
+    @users = user.followings
+        # このuserがフォローしている人全員を取ってくる
+  end
+
+  # あるuserをフォローしている人全員を取得するアクションを定義
+  def followers
+    user = User.find(params[:id])
+    @users = user.followers
+        # このuserをフォローしている人全員を取ってくる
   end
 
   
