@@ -34,7 +34,7 @@ class User < ApplicationRecord
   
   # あるユーザが引数で渡されたuserにフォローされているか調べるメソッド
   def is_followed_by?(user)
-    reverse_of_relationships.find_by(following_id: user.id).present?
+    reverse_of_relationships.find_by(user_id: user.id).present?
   end
   
 
