@@ -1,9 +1,4 @@
 ja:
-  time:
-    formats:
-      default: "%Y/%m/%d %H:%M:%S"
-
-ja:
   activerecord:
     attributes:
       user:
@@ -53,7 +48,7 @@ ja:
     - 土曜日
     formats:
       default: "%Y/%m/%d"
-      long: "%Y年%m月%d日(%a)"
+      long: "%Y年%m月%d日"
       short: "%m/%d"
     month_names:
     - 
