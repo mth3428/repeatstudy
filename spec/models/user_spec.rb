@@ -7,7 +7,7 @@ RSpec.describe User, type: :model do
         user = FactoryBot.build(:user)
         user.nickname = ""
         user.valid?
-        expect(user.errors.full_messages).to include "Nickname translation missing: ja.activerecord.errors.models.user.attributes.nickname.blank"
+        expect(user.errors.full_messages).to include "ニックネームを入力してください"
       end
       it "emailが空では登録できない" do
       end
