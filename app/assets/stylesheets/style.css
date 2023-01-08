@@ -41,7 +41,6 @@ a {
   background-color: #f1edf6;
   margin-bottom: 48px;
   padding: 20px 0;
-  position: fixed;
   width: 100%;
   top:0;
 }
@@ -101,17 +100,6 @@ a {
   text-decoration: none;
   color: #b99ede;
 }
-
-/*検索窓のエリア*/
-#search-wrap {
-  position: absolute;
-  z-index: 2;
-  top:100px;
-  right:10px;
-  position: fixed;
-}
-
-
 
 /*新規登録、ログイン画面*/
 .account-page .account-page__inner {
@@ -244,13 +232,27 @@ h2 {
 /* トップページ */
 .search {
   position: relative;
-  top: 100px;
+  display: flex;
+  justify-content: flex-end;margin-right: 20px;
+}
+
+.search_area {
+  
+}
+
+.search_box {
+  border: 1px solid #b99ede;
+  color:#9d69e5;
+}
+
+.search a {
+  text-decoration: none;
 }
 
 
 .twitter__block {
   position: relative;
-  top: 100px;
+  
   margin: 0 auto;
   display: flex;
   justify-content: center;
@@ -287,7 +289,7 @@ h2 {
 /* 投稿画面 */
 .container {
   position: relative;
-  top: 100px;
+  top: 10px;
 }
 
 /* 詳細ページ */
@@ -317,7 +319,7 @@ h2 {
 .prototype__wrapper{
   min-height: calc(100vh - 161px);
   position: relative;
-  top: 100px;
+  top: 10px;
 }
 
 .prototype__hedding{
@@ -380,7 +382,7 @@ h2 {
 /* 編集画面 */
 .form__wrapper{
   position: relative;
-  top: 100px;
+  top: 10px;
   min-height: calc(100vh - 161px);
 }
 
@@ -416,11 +418,11 @@ h2 {
 
 .contents {
   position: relative;
-  top: 100px;
+  top: 10px;
 }
 
 /* マイページ部分 */
 .my_page {
   position: relative;
-  top: 100px;
+  top: 10px;
 }
