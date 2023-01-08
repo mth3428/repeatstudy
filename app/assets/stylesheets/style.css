@@ -234,7 +234,10 @@ h2 {
   position: relative;
   display: flex;
   justify-content: flex-end;margin-right: 20px;
+}
 
+.search_area {
+  
 }
 
 .search_box {

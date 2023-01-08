@@ -5,7 +5,7 @@
       <%= form_with model: @post, local: true do |form| %>
         <%= form.file_field :image, placeholder: "Image Url" %>
         <%= form.text_area :tweet, placeholder: "学んだことを発信しよう", rows: "10" %>
-        <%= form.text_area :content, placeholder: "#で区切って入力してください" %>
+        <%= form.text_area :content, placeholder: "半角#で区切って入力してください" %>
         <%= form.submit "SEND" %>
       <% end %>
     </div>
