@@ -43,6 +43,13 @@ a {
   }
 }
 
+ /* スマホ表示時 */
+@media (max-width: 599px) {
+  .inner {
+    width: 40%;
+    margin: 0 auto;
+  }
+}
 
 /* ヘッダー */
 .header {
