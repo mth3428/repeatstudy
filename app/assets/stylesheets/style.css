@@ -35,7 +35,21 @@ a {
   color: #3b4043;
 }
 
+/* タブレット表示時 */
+@media (max-width: 1024px) {
+  .inner {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
 
+ /* スマホ表示時 */
+@media (max-width: 599px) {
+  .inner {
+    width: 40%;
+    margin: 0 auto;
+  }
+}
 
 /* ヘッダー */
 .header {

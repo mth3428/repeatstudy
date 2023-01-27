@@ -13,6 +13,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id=current_user.id
+    # 受け取った値を#で区切って配列にする
     tags = params[:post][:content].split('#')
     if @post.save
       @post.save_tags(tags)
