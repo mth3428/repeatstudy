@@ -64,7 +64,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:tweet, :image)
+    params.require(:post).permit(:tweet, image: [])
   end
 
   def move_to_index

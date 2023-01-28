@@ -25,7 +25,11 @@
             <div class="date"><%= l post.created_at %></div>
           <div class="text">
             <div class="in-pict">
-              <%= image_tag post.image, size: "200x200" if post.image.attached? %>
+              <% if post.image.attached? %>
+                <% post.image.each do |image| %>
+                  <%= image_tag post.image, size: "200x200" %>
+                <%end%>
+              <% end %>
             </div>
             <%# 改行を反映させる記述 %>
             <%= safe_join(post.tweet.split("\n"),tag(:br)) %>
