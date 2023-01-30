@@ -27,14 +27,7 @@
             <div class="in-pict">
               <% if post.images.attached? %>
                 <%= image_tag post.images[0], size: "200x200" %>
-                <div class="other-images">
-                  <% post.images[1..-1].each do |image| %>
-                    <div class="other-image">
-                      <%= image_tag image %>
-                    </div>
-              <%end%>
-          </div>
-        <% end %>
+              <% end %>
             </div>
             <%# 改行を反映させる記述 %>
             <%= safe_join(post.tweet.split("\n"),tag(:br)) %>
