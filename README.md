@@ -79,3 +79,15 @@
 
 - belongs_to :post
 - belongs_to :user
+
+## relationships テーブル
+
+| Columu             | Type       | Options                        |
+| ------------------ | ---------- | ------------------------------ |
+| following_id       | integer    | null: false                    |
+| follower_id        | integer    | null: false                    |
+
+### Association
+
+- belongs_to :following
+- belongs_to :follower
