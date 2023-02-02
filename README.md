@@ -91,3 +91,20 @@
 
 - belongs_to :following
 - belongs_to :follower
+
+## followings テーブル
+
+usersテーブルと同じ内容
+
+### Association
+
+- has_many :relationships
+
+
+## follower テーブル
+
+usersテーブルと同じ内容
+
+### Association
+
+- has_many :relationships
