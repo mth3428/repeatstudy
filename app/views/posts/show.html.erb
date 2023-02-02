@@ -23,7 +23,16 @@
       <% end %>
       <%# ツイートの投稿者とログインしているユーザーが同じ場合 %>
       <div class="prototype__image">
-        <%= image_tag @post.image, size: "200x200" if @post.image.attached? %>
+        <% if @post.images.attached? %>
+          <%= image_tag @post.images[0], size: "200x200" %>
+          <div class="other-images">
+            <% @post.images[1..-1].each do |image| %>
+              <div class="other-image">
+                <%= image_tag image %>
+              </div>
+            <%end%>
+          </div>
+        <% end %>
       </div>
       <div class="prototype__body">
         <div class="prototype__detail">
