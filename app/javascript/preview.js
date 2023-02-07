@@ -17,6 +17,8 @@ document.addEventListener('DOMContentLoaded', function(){
     previewWrapper.setAttribute('class', 'preview');
     // 表示する画像を生成
     const previewImage = document.createElement('img');
+    previewImage.width = 200;
+    previewImage.height = 200;
     previewImage.setAttribute('class', 'preview-image');
     previewImage.setAttribute('src', blob);
 
