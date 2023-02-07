@@ -10,6 +10,11 @@ document.addEventListener('DOMContentLoaded', function(){
   const fileField = document.querySelector('input[type="file"][name="post[images][]"]');
   // input要素で値の変化が起きた際に呼び出される関数
   fileField.addEventListener('change', function(e){
+    // 古いプレビューが存在する場合は削除
+    const alreadyPreview = document.querySelector('.preview');
+    if (alreadyPreview) {
+      alreadyPreview.remove();
+    };
     const file = e.target.files[0];
     const blob = window.URL.createObjectURL(file);
     // 画像を表示するためのdiv要素を生成
